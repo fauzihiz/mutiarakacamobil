@@ -1,0 +1,214 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+
+/* Hero Section Styles */
+.hero {
+    height: 100vh; /* Full viewport height */
+    background: url('hero.jpg') no-repeat center center/cover; /* Background image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+
+    background-color: #FFFFFF; /* Warna latar belakang mirip dengan warna utama gambar */
+    background-size: cover; /* Gambar menutupi seluruh area background */
+    background-position: center; /* Gambar berada di tengah */
+    background-attachment: scroll; /* Background bergerak saat halaman digulir */
+    background-repeat: no-repeat; /* Gambar tidak diulang */
+    color: #FFFFFF;
+    padding: 100px 0;
+    overflow: hidden;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Black with 50% opacity */
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2; /* Keeps text above the overlay */
+    color: white;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    margin-bottom: 30px;
+  }
+  
+  ul li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #E90E14; /* Adjust as per your design */
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #d00c10;
+  }
+  
+
+  /* benefit Section Styles */
+    .benefit {
+    background: url('your-background-image.jpg') no-repeat center center/cover; /* Background image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    position: relative;
+    padding: 20px;
+  }
+  
+  .benefit-content {
+    text-align: center;
+  }
+
+  .faq {
+    text-align: center;
+  }
+
+  .faq-item {
+    margin-bottom: 20px;
+  }
+  
+  .faq-question {
+    background-color: #0EA0D1; /* Button color */
+    color: #fff; /* Text color */
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background-color: #0c8aa9; /* Darker shade on hover */
+  }
+  
+  .faq-answer {
+    display: none;
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  /* Active state for when the question is clicked */
+.faq-question.active {
+    background-color: #E3476E; /* Toggle color */
+  }
+  
+  .faq-arrow {
+    transition: transform 0.3s ease;
+    font-size: 16px;
+  }
+  
+  .faq-question.active .faq-arrow {
+    transform: rotate(180deg); /* Rotate arrow when active */
+  }
+
+  .location-content {
+    text-align: center;
+  }
+
+  .map-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+  }
+  
+  .map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .last-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+  }
+  
+  .last-cta-content {
+    text-align: center;
+  }
+
+  footer {
+    background-color: #0EA0D1;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+  /* Mobile (up to 480px) */
+    @media only screen and (max-width: 480px) {
+    .map-container {
+      padding-bottom: 75%; /* Adjust aspect ratio for mobile */
+    }
+  }
+
+  /* Tablets (480px - 768px) */
+    @media only screen and (min-width: 481px) and (max-width: 768px) {
+    .map-container {
+      padding-bottom: 60%; /* Slightly different ratio for tablets */
+    }
+  }
+  
+  /* Desktop (larger than 768px) */
+    @media only screen and (min-width: 769px) {
+    .map-container {
+      padding-bottom: 40%; /* Larger view for desktops */
+    }
+  }
