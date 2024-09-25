@@ -15,4 +15,3 @@ function toggleFaq(element) {
 function toggleFlip(element) {
     element.classList.toggle("flipped");
   }
-    

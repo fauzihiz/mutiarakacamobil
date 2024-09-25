@@ -51,10 +51,6 @@
   .hero-content h1 {
     color: white;
   }
-
-  .hero-content h2 {
-    color: white;
-  }
   
   /* H1 Styling */
 h1 {
@@ -388,3 +384,46 @@ footer a {
     margin-top: 5px;
   }
   
+  /* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .fade-in {
+    opacity: 0; /* Hidden by default */
+    animation: fadeIn 1s forwards; /* Fade in animation */
+  }
+  
+  /* Slide In from Left Animation */
+  @keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  .slide-in-left {
+    opacity: 0; /* Hidden by default */
+    animation: slideInLeft 1s forwards; /* Slide in from left */
+  }
+  
+  /* Slide In from Bottom Animation */
+  @keyframes slideInBottom {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .slide-in-bottom {
+    opacity: 0; /* Hidden by default */
+    animation: slideInBottom 1s forwards; /* Slide in from bottom */
+  }
+  
+  /* Bounce In Animation */
+  @keyframes bounceIn {
+    from, 20%, 50%, 80%, to { transform: translateY(0); }
+    40% { transform: translateY(-30px); }
+    60% { transform: translateY(-15px); }
+  }
+  
+  .bounce-in {
+    animation: bounceIn 1s forwards; /* Bounce in */
+  }  
