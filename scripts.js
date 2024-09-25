@@ -11,4 +11,8 @@ function toggleFaq(element) {
       element.classList.remove('active'); // Remove active class to revert question color
     }
   }
-  
+
+function toggleFlip(element) {
+    element.classList.toggle("flipped");
+  }
+    
