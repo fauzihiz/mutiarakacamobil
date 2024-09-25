@@ -206,6 +206,54 @@
     transform: rotate(180deg); /* Rotate arrow when active */
   }
 
+  .gallery {
+    padding: 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+  }
+  
+  .gallery h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .gallery-item {
+    width: 45%; /* For desktop, adjust to take 45% of the width */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+  }
+  
+  .gallery-item:hover img {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  .gallery-item p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-item {
+      width: 100%; /* For mobile, make the images stack vertically */
+    }
+  }
+  
+
   .location-content {
     text-align: center;
   }
@@ -272,3 +320,29 @@ footer a {
       padding-bottom: 40%; /* Larger view for desktops */
     }
   }
+
+  .decorative-divider {
+    text-align: center;
+    margin: 40px auto;
+    position: relative;
+  }
+  
+  .decorative-divider:before {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 2px;
+    background-color: #0ea0d1;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .decorative-divider:after {
+    content: '⚙'; /* You can use any symbol, like a gear or chevron */
+    display: block;
+    font-size: 20px;
+    color: #0ea0d1;
+    margin-top: 5px;
+  }
+  
