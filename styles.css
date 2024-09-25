@@ -7,7 +7,8 @@
   
   body, html {
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
   }
 
 /* Hero Section Styles */
@@ -46,10 +47,51 @@
     z-index: 2; /* Keeps text above the overlay */
     color: white;
   }
+
+  .hero-content h1 {
+    color: white;
+  }
+
+  .hero-content h2 {
+    color: white;
+  }
   
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+  /* H1 Styling */
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem; /* Size for desktop */
+    font-weight: 700;  /* Bold font weight */
+    text-transform: uppercase; /* Uppercase for emphasis */
+    color: #0EA0D1; /* Primary color for visual pop */
+    letter-spacing: 2px; /* Adds spacing between letters */
+    text-align: center; /* Center text */
+    margin-bottom: 20px;
+    line-height: 1.2; /* Adds clarity and readability */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+
+  /* H2 Styling */
+h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;  /* Lighter weight for secondary headings */
+    color: #E90E14; /* Secondary color for contrast */
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 3px solid #E90E14; /* Underline effect for h2 */
+  display: inline-block;
+  padding-bottom: 5px;
+  }
+
+  /* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+      font-size: 2rem; /* Smaller font size for mobile */
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
   }
   
   p {
