@@ -206,7 +206,7 @@ h2 {
   
   .faq-question {
     background-color: #0EA0D1; /* Button color */
-    color: #fff; /* Text color */
+    color: #E0E0E0; /* Text color */
     padding: 15px;
     font-size: 18px;
     cursor: pointer;
@@ -253,6 +253,7 @@ h2 {
   .gallery h1 {
     font-size: 2rem;
     margin-bottom: 20px;
+    color: #0C7391;
   }
   
   .image-gallery {
@@ -327,14 +328,14 @@ h2 {
 
   footer {
     background-color: #0EA0D1;
-    color: #fff;
+    color: #E0E0E0;
     text-align: center;
     padding: 10px 0;
     font-size: 16px;
 }
 
 footer a {
-    color: #fff;
+    color: #E0E0E0;
     text-decoration: none;
 }
 
