@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import gallery01 from '../assets/gallery01.jpg';
+import gallery02 from '../assets/gallery02.jpg';
+---
+<section class="gallery" id="gallery">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Portfolio</div>
+            <h2 class="section-title">Galeri <span class="highlight">Pekerjaan</span></h2>
+            <p class="section-subtitle">Hasil kerja berkualitas dari berbagai jenis kendaraan</p>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <Image src={gallery01} alt="Pekerjaan 1 - Toyota Avanza" width={800} height={600} />
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h3>Toyota Avanza</h3>
+                            <p>Penggantian Kaca Belakang</p>
+                            <div class="gallery-tags">
+                                <span>Home Service</span>
+                                <span>1.5 Jam</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <Image src={gallery02} alt="Pekerjaan 2 - Daihatsu Calya" width={800} height={600} />
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h3>Daihatsu Calya</h3>
+                            <p>Penggantian Kaca Belakang</p>
+                            <div class="gallery-tags">
+                                <span>Orisinil</span>
+                                <span>Bergaransi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target as HTMLElement;
+                const index = Array.from(element.parentNode!.children).indexOf(element);
+                setTimeout(() => {
+                    element.classList.add('animate');
+                }, index * 200);
+                observer.unobserve(element);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.gallery-item').forEach(item => observer.observe(item));
+</script>

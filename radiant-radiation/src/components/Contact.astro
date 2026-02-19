@@ -1,0 +1,68 @@
+---
+---
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="section-header">
+                    <div class="section-badge">Hubungi Kami</div>
+                    <h2 class="section-title">Butuh Bantuan <span class="highlight">Sekarang?</span></h2>
+                    <p class="section-subtitle">Tim kami siap membantu kapan saja untuk kebutuhan darurat kaca mobil Anda</p>
+                </div>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p>+62 821-2507-4882</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h3>Alamat</h3>
+                            <p>Jalan Raya Pondok Gede No. 7<br>Halim Perdanakusuma, Jakarta Timur</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <h3>Jam Operasional</h3>
+                            <p>Senin - Minggu<br>08:00 - 17:00 WIB</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-cta">
+                    <a href="https://api.whatsapp.com/send?phone=6282125074882&text=Hai%20saya%20ada%20kebutuhan%20penggantian%20kaca%20mobil,%20boleh%20saya%20bertanya%20lebih%20lanjut?" class="cta-primary cta-button">
+                        <span class="cta-icon">💬</span>
+                        <span>Chat WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-map">
+                <div class="map-container">
+                  <iframe title="Google Map Location of Mutiara Kaca Mobil Workshop" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3965.7992983085146!2d106.88845267499103!3d-6.290089793698895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMTcnMjQuMyJTIDEwNsKwNTMnMjcuNyJF!5e0!3m2!1sen!2sid!4v1737792755760!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target as HTMLElement;
+                element.classList.add('animate');
+                observer.unobserve(element);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.contact-item, .contact-map').forEach(el => observer.observe(el));
+</script>

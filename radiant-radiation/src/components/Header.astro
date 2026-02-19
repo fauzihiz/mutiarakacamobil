@@ -1,0 +1,100 @@
+---
+---
+<nav class="floating-nav" id="floatingNav">
+    <div class="nav-container">
+        <div class="logo">
+            <div class="logo-icon">🚗</div>
+            <span>Mutiara</span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home" class="nav-link active">Beranda</a>
+            <a href="#services" class="nav-link">Layanan</a>
+            <a href="#gallery" class="nav-link">Galeri</a>
+            <a href="#contact" class="nav-link">Kontak</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<script>
+    const floatingNav = document.getElementById('floatingNav');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navLinksItems = document.querySelectorAll('.nav-link');
+
+    // Throttle helper
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    }
+
+    // Scroll behavior
+    window.addEventListener('scroll', throttle(() => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > 50) {
+            floatingNav?.classList.add('scrolled');
+        } else {
+            floatingNav?.classList.remove('scrolled');
+        }
+    }, 100));
+
+    // Mobile menu toggle
+    navToggle?.addEventListener('click', () => {
+        navLinks?.classList.toggle('active');
+        navToggle?.classList.toggle('active');
+    });
+
+    // Close menu on click or escape
+    navLinksItems.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks?.classList.remove('active');
+            navToggle?.classList.remove('active');
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (floatingNav && !floatingNav.contains(e.target as Node) && navLinks?.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            navToggle?.classList.remove('active');
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks?.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            navToggle?.classList.remove('active');
+        }
+    });
+
+    // Section Observer for navigation highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinksItems.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, {
+        rootMargin: '-50% 0px -50% 0px'
+    });
+
+    sections.forEach(section => observer.observe(section));
+</script>

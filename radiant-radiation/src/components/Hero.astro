@@ -1,0 +1,113 @@
+---
+---
+<section class="hero" id="home">
+    <div class="hero-bg">
+        <div class="animated-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </div>
+    
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="badge-icon">⚡</span>
+            <span>Layanan Express 1.5 Jam</span>
+        </div>
+        
+        <h1 class="hero-title">
+            <span class="title-line">Kaca Mobil</span>
+            <span class="title-line highlight">Rusak?</span>
+            <span class="title-line">Kami Solusinya!</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+            Home Service • Garansi 7 Bulan • Kaca Orisinil • Pengerjaan Cepat
+        </p>
+        
+        <div class="hero-cta">
+            <a href="https://api.whatsapp.com/send?phone=6282125074882&text=Hai%20saya%20ada%20kebutuhan%20penggantian%20kaca%20mobil,%20boleh%20saya%20bertanya%20lebih%20lanjut?" class="cta-primary cta-button">
+                <span class="cta-icon">📱</span>
+                <span>Hubungi Sekarang</span>
+            </a>
+            
+            <a href="#services" class="cta-secondary">
+                <span>Lihat Layanan</span>
+                <span class="arrow-down">↓</span>
+            </a>
+        </div>
+        
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number" data-target="1000">0</div>
+                <div class="stat-label">Mobil Selesai</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="98">0</div>
+                <div class="stat-label">% Kepuasan</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="7">0</div>
+                <div class="stat-label">Bulan Garansi</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Parallax effect for hero shapes
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    }
+
+    window.addEventListener('scroll', throttle(() => {
+        const scrolled = window.pageYOffset;
+        const shapes = document.querySelectorAll('.shape');
+        
+        shapes.forEach((shape, index) => {
+            const speed = (index + 1) * 0.05;
+            (shape as HTMLElement).style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+        });
+    }, 16));
+
+    // Animated counters
+    const counters = document.querySelectorAll('.stat-number');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target') || '0');
+                animateCounter(counter as HTMLElement, target);
+                counterObserver.unobserve(counter);
+            }
+        });
+    });
+    
+    counters.forEach(counter => counterObserver.observe(counter));
+
+    function animateCounter(element, target) {
+        let start = 0;
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+                element.textContent = target.toString();
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start).toString();
+            }
+        }, 16);
+    }
+</script>

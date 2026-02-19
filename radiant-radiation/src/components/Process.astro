@@ -1,0 +1,63 @@
+---
+---
+<section class="process">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Cara Kerja</div>
+            <h2 class="section-title">Proses <span class="highlight">Mudah & Cepat</span></h2>
+        </div>
+        
+        <div class="process-timeline">
+            <div class="timeline-line"></div>
+            
+            <div class="process-step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h3>Hubungi Kami</h3>
+                    <p>Kontak via WhatsApp atau telepon untuk konsultasi kebutuhan kaca mobil Anda</p>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h3>Penawaran</h3>
+                    <p>Kami akan memberikan penawaran harga yang transparan</p>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h3>Pengerjaan Profesional</h3>
+                    <p>Pemasangan kaca dilakukan dengan hati-hati oleh teknisi berpengalaman</p>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">04</div>
+                <div class="step-content">
+                    <h3>Quality Check</h3>
+                    <p>Pemeriksaan menyeluruh dan penyerahan dengan garansi dari kami</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target as HTMLElement;
+                const index = Array.from(element.parentNode!.children).indexOf(element);
+                setTimeout(() => {
+                    element.classList.add('animate');
+                }, index * 200);
+                observer.unobserve(element);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.process-step').forEach(step => observer.observe(step));
+</script>

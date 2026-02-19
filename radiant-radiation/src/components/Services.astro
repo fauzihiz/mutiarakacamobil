@@ -1,0 +1,84 @@
+---
+---
+<section class="services" id="services">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">Keunggulan Kami</div>
+            <h2 class="section-title">Mengapa Memilih <span class="highlight">Mutiara?</span></h2>
+            <p class="section-subtitle">Pengalaman bertahun-tahun dengan teknologi terdepan</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <div class="icon-bg"></div>
+                    <span>🏆</span>
+                </div>
+                <h3>Kaca Orisinil Bersertifikat</h3>
+                <p>Menggunakan kaca mobil orisinil dan OEM dari merek terpercaya seperti Asahimas, FY, XYG, dan Mulia dengan sertifikasi SNI.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <div class="icon-bg"></div>
+                    <span>🛡️</span>
+                </div>
+                <h3>Garansi 7 Bulan</h3>
+                <p>Setiap pemasangan dilengkapi garansi kebocoran selama 7 bulan penuh untuk memberikan rasa aman kepada pelanggan.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <div class="icon-bg"></div>
+                    <span>🧪</span>
+                </div>
+                <h3>Lem Anti Karat Premium</h3>
+                <p>Menggunakan lem khusus berkualitas tinggi yang tidak berbau dan anti-karat untuk hasil pemasangan yang tahan lama.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <div class="icon-bg"></div>
+                    <span>🏠</span>
+                </div>
+                <h3>Home Service Profesional</h3>
+                <p>Tidak perlu repot datang ke bengkel. Tim ahli kami siap datang ke lokasi Anda dengan peralatan lengkap dan profesional.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <div class="icon-bg"></div>
+                    <span>⚡</span>
+                </div>
+                <h3>Pengerjaan Express 1.5 Jam</h3>
+                <p>Efisiensi waktu maksimal dengan pengerjaan hanya 1.5 jam tanpa mengurangi kualitas dan presisi pemasangan.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <div class="icon-bg"></div>
+                    <span>💎</span>
+                </div>
+                <h3>Kualitas Premium</h3>
+                <p>Standar kualitas tinggi dengan tekniker berpengalaman dan peralatan modern untuk hasil sempurna setiap waktu.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target as HTMLElement;
+                const index = Array.from(element.parentNode!.children).indexOf(element);
+                setTimeout(() => {
+                    element.classList.add('animate');
+                }, index * 100);
+                observer.unobserve(element);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card').forEach(card => observer.observe(card));
+</script>

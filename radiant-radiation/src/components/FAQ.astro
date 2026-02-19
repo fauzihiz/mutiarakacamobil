@@ -1,0 +1,70 @@
+---
+---
+<section class="faq">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">FAQ</div>
+            <h2 class="section-title">Pertanyaan <span class="highlight">Umum</span></h2>
+        </div>
+        
+        <div class="faq-container">
+            {[
+                { q: "Apakah kaca mobil yang digunakan orisinil?", a: "Ya, kami menyediakan kaca mobil orisinil dan juga OEM bersertifikat SNI yang telah terbukti kualitasnya dari brand terpercaya seperti Asahimas, FY, XYG, dan Mulia." },
+                { q: "Berapa lama waktu pemasangan kaca mobil?", a: "Rata-rata pemasangan kaca mobil kami hanya memakan waktu 1.5 jam, sehingga Anda dapat segera menggunakan mobil kembali dengan aman." },
+                { q: "Apakah ada garansi setelah pemasangan?", a: "Ya, kami memberikan garansi kebocoran selama 7 bulan untuk semua pemasangan kaca mobil sebagai bentuk komitmen kualitas layanan kami." },
+                { q: "Apakah saya harus datang ke bengkel?", a: "Tidak perlu! Kami menyediakan layanan Home Service sehingga tim teknisi kami bisa datang langsung ke lokasi Anda dengan peralatan lengkap." },
+                { q: "Berapa biaya layanan home service?", a: "Biaya home service sudah termasuk dalam paket layanan kami tanpa biaya tambahan untuk area Jabodetabek. Hubungi kami untuk informasi area lainnya." }
+            ].map((faq, index) => (
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>{faq.q}</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>{faq.a}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<script>
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question') as HTMLButtonElement;
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all FAQ items
+            faqItems.forEach(faqItem => {
+                faqItem.classList.remove('active');
+                faqItem.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+                question.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+    // Animation observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target as HTMLElement;
+                const index = Array.from(element.parentNode!.children).indexOf(element);
+                setTimeout(() => {
+                    element.classList.add('animate');
+                }, index * 100);
+                observer.unobserve(element);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    faqItems.forEach(item => observer.observe(item));
+</script>
